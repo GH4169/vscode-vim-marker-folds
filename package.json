@@ -1,0 +1,43 @@
+{
+  "name": "gvim-marker-folds",
+  "displayName": "GVim Marker Folds",
+  "description": "GVim Marker Folds — independently maintained local extension.",
+  "publisher": "local",
+  "version": "0.1.3",
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.96.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "extensionKind": [
+    "ui"
+  ],
+  "main": "./extension.js",
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "contributes": {
+    "commands": [
+      {
+        "command": "gvimMarkerFolds.createFold",
+        "title": "gvimMarkerFolds.createFold"
+      },
+      {
+        "command": "gvimMarkerFolds.deleteFold",
+        "title": "gvimMarkerFolds.deleteFold"
+      }
+    ],
+    "configuration": {
+      "title": "GVim Marker Folds",
+      "properties": {
+        "gvimMarkerFolds.commentStrings": {
+          "type": "object",
+          "default": {},
+          "description": "Safe per-language marker comment formats. Empty string disables creation."
+        }
+      }
+    }
+  }
+}

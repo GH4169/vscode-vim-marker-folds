@@ -1,0 +1,46 @@
+{
+  "editor.folding": true,
+  "editor.foldingStrategy": "auto",
+  "editor.defaultFoldingRangeProvider": "local.gvim-marker-folds",
+  "vim.foldfix": true,
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": [
+        "z",
+        "f"
+      ],
+      "commands": [
+        "gvimMarkerFolds.createFold"
+      ]
+    },
+    {
+      "before": [
+        "z",
+        "d"
+      ],
+      "commands": [
+        "gvimMarkerFolds.deleteFold"
+      ]
+    }
+  ],
+  "vim.visualModeKeyBindingsNonRecursive": [
+    {
+      "before": [
+        "z",
+        "f"
+      ],
+      "commands": [
+        "gvimMarkerFolds.createFold"
+      ]
+    },
+    {
+      "before": [
+        "z",
+        "d"
+      ],
+      "commands": [
+        "gvimMarkerFolds.deleteFold"
+      ]
+    }
+  ]
+}
