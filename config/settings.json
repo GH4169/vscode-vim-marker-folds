@@ -9,8 +9,9 @@
         "z",
         "f"
       ],
-      "commands": [
-        "gvimMarkerFolds.createFold"
+      "after": [
+        "z",
+        "f"
       ]
     },
     {
@@ -18,8 +19,165 @@
         "z",
         "d"
       ],
+      "after": [
+        "z",
+        "d"
+      ]
+    },
+    {
+      "before": [
+        "z",
+        "F"
+      ],
+      "after": [
+        "z",
+        "f",
+        "_"
+      ]
+    },
+    {
+      "before": [
+        "z",
+        "o"
+      ],
+      "after": [
+        "z",
+        "o"
+      ]
+    },
+    {
+      "before": [
+        "z",
+        "D"
+      ],
       "commands": [
-        "gvimMarkerFolds.deleteFold"
+        "gvimMarkerFolds.deleteFoldRecursive"
+      ]
+    },
+    {
+      "before": [
+        "z",
+        "E"
+      ],
+      "commands": [
+        "gvimMarkerFolds.deleteAllFolds"
+      ]
+    },
+    {
+      "before": [
+        "z",
+        "A"
+      ],
+      "commands": [
+        "gvimMarkerFolds.toggleFoldRecursive"
+      ]
+    },
+    {
+      "before": [
+        "z",
+        "v"
+      ],
+      "commands": [
+        "gvimMarkerFolds.viewCursor"
+      ]
+    },
+    {
+      "before": [
+        "z",
+        "m"
+      ],
+      "commands": [
+        "gvimMarkerFolds.foldMore"
+      ]
+    },
+    {
+      "before": [
+        "z",
+        "r"
+      ],
+      "commands": [
+        "gvimMarkerFolds.foldLess"
+      ]
+    },
+    {
+      "before": [
+        "z",
+        "n"
+      ],
+      "commands": [
+        "gvimMarkerFolds.disableFolds"
+      ]
+    },
+    {
+      "before": [
+        "z",
+        "N"
+      ],
+      "commands": [
+        "gvimMarkerFolds.enableFolds"
+      ]
+    },
+    {
+      "before": [
+        "z",
+        "i"
+      ],
+      "commands": [
+        "gvimMarkerFolds.toggleFolds"
+      ]
+    },
+    {
+      "before": [
+        "z",
+        "j"
+      ],
+      "commands": [
+        "gvimMarkerFolds.nextFold"
+      ]
+    },
+    {
+      "before": [
+        "z",
+        "k"
+      ],
+      "commands": [
+        "gvimMarkerFolds.previousFold"
+      ]
+    },
+    {
+      "before": [
+        "[",
+        "z"
+      ],
+      "commands": [
+        "gvimMarkerFolds.foldStart"
+      ]
+    },
+    {
+      "before": [
+        "]",
+        "z"
+      ],
+      "commands": [
+        "gvimMarkerFolds.foldEnd"
+      ]
+    },
+    {
+      "before": [
+        "z",
+        "x"
+      ],
+      "commands": [
+        "gvimMarkerFolds.updateFolds"
+      ]
+    },
+    {
+      "before": [
+        "z",
+        "X"
+      ],
+      "commands": [
+        "gvimMarkerFolds.resetFolds"
       ]
     }
   ],
@@ -40,6 +198,141 @@
       ],
       "commands": [
         "gvimMarkerFolds.deleteFold"
+      ]
+    },
+    {
+      "before": [
+        "z",
+        "D"
+      ],
+      "commands": [
+        "gvimMarkerFolds.deleteFoldRecursive"
+      ]
+    },
+    {
+      "before": [
+        "z",
+        "E"
+      ],
+      "commands": [
+        "gvimMarkerFolds.deleteAllFolds"
+      ]
+    },
+    {
+      "before": [
+        "z",
+        "A"
+      ],
+      "commands": [
+        "gvimMarkerFolds.toggleFoldRecursive"
+      ]
+    },
+    {
+      "before": [
+        "z",
+        "v"
+      ],
+      "commands": [
+        "gvimMarkerFolds.viewCursor"
+      ]
+    },
+    {
+      "before": [
+        "z",
+        "m"
+      ],
+      "commands": [
+        "gvimMarkerFolds.foldMore"
+      ]
+    },
+    {
+      "before": [
+        "z",
+        "r"
+      ],
+      "commands": [
+        "gvimMarkerFolds.foldLess"
+      ]
+    },
+    {
+      "before": [
+        "z",
+        "n"
+      ],
+      "commands": [
+        "gvimMarkerFolds.disableFolds"
+      ]
+    },
+    {
+      "before": [
+        "z",
+        "N"
+      ],
+      "commands": [
+        "gvimMarkerFolds.enableFolds"
+      ]
+    },
+    {
+      "before": [
+        "z",
+        "i"
+      ],
+      "commands": [
+        "gvimMarkerFolds.toggleFolds"
+      ]
+    },
+    {
+      "before": [
+        "z",
+        "j"
+      ],
+      "commands": [
+        "gvimMarkerFolds.nextFold"
+      ]
+    },
+    {
+      "before": [
+        "z",
+        "k"
+      ],
+      "commands": [
+        "gvimMarkerFolds.previousFold"
+      ]
+    },
+    {
+      "before": [
+        "[",
+        "z"
+      ],
+      "commands": [
+        "gvimMarkerFolds.foldStart"
+      ]
+    },
+    {
+      "before": [
+        "]",
+        "z"
+      ],
+      "commands": [
+        "gvimMarkerFolds.foldEnd"
+      ]
+    },
+    {
+      "before": [
+        "z",
+        "x"
+      ],
+      "commands": [
+        "gvimMarkerFolds.updateFolds"
+      ]
+    },
+    {
+      "before": [
+        "z",
+        "X"
+      ],
+      "commands": [
+        "gvimMarkerFolds.resetFolds"
       ]
     }
   ]

@@ -1,9 +1,9 @@
 {
   "name": "gvim-marker-folds",
   "displayName": "GVim Marker Folds",
-  "description": "GVim Marker Folds — independently maintained local extension.",
+  "description": "GVim Marker Folds \u2014 independently maintained local extension.",
   "publisher": "local",
-  "version": "0.1.3",
+  "version": "0.2.0",
   "license": "MIT",
   "engines": {
     "vscode": "^1.96.0"
@@ -27,6 +27,66 @@
       {
         "command": "gvimMarkerFolds.deleteFold",
         "title": "gvimMarkerFolds.deleteFold"
+      },
+      {
+        "command": "gvimMarkerFolds.deleteFoldRecursive",
+        "title": "GVim: Delete folds recursively"
+      },
+      {
+        "command": "gvimMarkerFolds.deleteAllFolds",
+        "title": "GVim: Delete all marker folds"
+      },
+      {
+        "command": "gvimMarkerFolds.toggleFoldRecursive",
+        "title": "GVim: toggleFoldRecursive"
+      },
+      {
+        "command": "gvimMarkerFolds.viewCursor",
+        "title": "GVim: viewCursor"
+      },
+      {
+        "command": "gvimMarkerFolds.foldMore",
+        "title": "GVim: foldMore"
+      },
+      {
+        "command": "gvimMarkerFolds.foldLess",
+        "title": "GVim: foldLess"
+      },
+      {
+        "command": "gvimMarkerFolds.disableFolds",
+        "title": "GVim: disableFolds"
+      },
+      {
+        "command": "gvimMarkerFolds.enableFolds",
+        "title": "GVim: enableFolds"
+      },
+      {
+        "command": "gvimMarkerFolds.toggleFolds",
+        "title": "GVim: toggleFolds"
+      },
+      {
+        "command": "gvimMarkerFolds.nextFold",
+        "title": "GVim: nextFold"
+      },
+      {
+        "command": "gvimMarkerFolds.previousFold",
+        "title": "GVim: previousFold"
+      },
+      {
+        "command": "gvimMarkerFolds.foldStart",
+        "title": "GVim: foldStart"
+      },
+      {
+        "command": "gvimMarkerFolds.foldEnd",
+        "title": "GVim: foldEnd"
+      },
+      {
+        "command": "gvimMarkerFolds.updateFolds",
+        "title": "GVim: updateFolds"
+      },
+      {
+        "command": "gvimMarkerFolds.resetFolds",
+        "title": "GVim: resetFolds"
       }
     ],
     "configuration": {
@@ -39,5 +99,8 @@
         }
       }
     }
-  }
+  },
+  "extensionDependencies": [
+    "vscodevim.vim"
+  ]
 }
