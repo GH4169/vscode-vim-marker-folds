@@ -202,12 +202,14 @@ async function run() {
       );
     });
   await record(
-    'zo opens; repeated zo stays open; zc closes; za toggles',
+    'zo and za toggle folds; zc always closes',
     async () => {
       await open(sample);
       await type('zf2j');
       await type('zo');
       assert.ok(!hidden(1));
+      await type('zo');
+      assert.ok(hidden(1));
       await type('zo');
       assert.ok(!hidden(1));
       await type('zc');
@@ -219,6 +221,17 @@ async function run() {
     }
   );
   const nested = 'a // {{{\nb // {{{\nc\nd // }}}\ne // }}}\ntail\n';
+  await record(
+    'marker folds start closed like Vim foldlevel=0; zo toggles them',
+    async () => {
+      await open(nested);
+      assert.ok(hidden(1));
+      await type('zo');
+      assert.ok(!hidden(1));
+      await type('zo');
+      assert.ok(hidden(1));
+    }
+  );
   await record(
     'zd on closed outer fold removes outer markers and preserves nested fold',
     async () => {
@@ -283,7 +296,7 @@ async function run() {
     assert.ok(!hidden(7));
   });
   await record(
-    'nested zo opens one level and za toggles the visible closed fold',
+    'nested zo toggles one level and za toggles the visible closed fold',
     async () => {
       await open(nested);
       await type('zMzo');
@@ -362,7 +375,7 @@ async function run() {
     await type(']z');
     assert.equal(editor.selection.active.line, 4);
   });
-  await record('Visual zo opens every fold in the selection', async () => {
+  await record('Visual zo toggles every fold in the selection', async () => {
     await open(nested + 'other // {{{\nx\nend // }}}\n');
     await type('zMvGzo');
     assert.ok(!hidden(1));

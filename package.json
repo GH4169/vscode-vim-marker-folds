@@ -92,6 +92,11 @@
     "configuration": {
       "title": "GVim Marker Folds",
       "properties": {
+        "gvimMarkerFolds.collapseAllOnOpen": {
+          "type": "boolean",
+          "default": true,
+          "description": "Collapse marker folds when an editor is first opened, matching Vim foldlevel=0."
+        },
         "gvimMarkerFolds.commentStrings": {
           "type": "object",
           "default": {},

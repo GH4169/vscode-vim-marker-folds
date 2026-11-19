@@ -26,9 +26,38 @@ async function activate(context) {
   context.subscriptions.push(change, output, decoration);
   const cache = new WeakMap();
   const states = new WeakMap();
+  const initialized = new WeakSet();
   const stateFor = (editor) => {
     if (!states.has(editor)) states.set(editor, new FoldState());
     return states.get(editor);
+  };
+  const initializeFolds = async (editor) => {
+    if (
+      initialized.has(editor) ||
+      !vscode.workspace
+        .getConfiguration('gvimMarkerFolds')
+        .get('collapseAllOnOpen', true)
+    )
+      return;
+    initialized.add(editor);
+    await new Promise((resolve) => setTimeout(resolve, 0));
+    if (editor.document.isClosed) return;
+    const folds = get(editor.document).filter(
+      (fold) => fold.end.line > fold.start.line
+    );
+    // Clear manual ranges left by an older provider instance before applying
+    // the current marker ranges. Otherwise deleted markers can stay folded.
+    await vscode.commands.executeCommand('editor.unfoldAll');
+    const model = stateFor(editor);
+    model.collapsed.clear();
+    if (!folds.length) {
+      draw();
+      return;
+    }
+    await vscode.commands.executeCommand('editor.foldAll');
+    model.set(folds, true);
+    model.level = 0;
+    draw();
   };
   const get = (doc) => {
     let hit = cache.get(doc);
@@ -326,6 +355,16 @@ async function activate(context) {
         text = text.slice(0, range.start) + text.slice(range.end);
       edits.set(line, text);
     }
+    // Removing a collapsed provider range leaves VS Code's manual collapse
+    // state behind until the folding model is refreshed. Open each deleted
+    // range first so the resulting view matches Vim's `zd` behavior.
+    for (const fold of targets) {
+      await vscode.commands.executeCommand('editor.unfold', {
+        selectionLines: [fold.start.line],
+        levels: 1,
+        direction: 'down',
+      });
+    }
     if (!(await editLines(editor, edits))) return;
     await finish(editor, first, state, editor.selection.active.character);
     change.fire();
@@ -501,6 +540,13 @@ async function activate(context) {
     }),
     vscode.window.onDidChangeVisibleTextEditors(draw),
     vscode.window.onDidChangeTextEditorVisibleRanges(draw)
+  );
+  for (const editor of vscode.window.visibleTextEditors)
+    initializeFolds(editor).catch(report);
+  context.subscriptions.push(
+    vscode.window.onDidChangeActiveTextEditor((editor) => {
+      if (editor) initializeFolds(editor).catch(report);
+    })
   );
   draw();
 }

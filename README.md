@@ -2,7 +2,7 @@
 
 以合法注释写入 {{{ / }}}，提供专用 FoldingRangeProvider 和折叠行数装饰。
 
-按用户 gVim 的 `foldmethod=marker` 配置实现手工创建折叠。Normal 的 `zf` 等待后续 motion，使用 VSCodeVim 原生范围、次数、文本对象和取消流程；Visual 选区包含最后一行。创建/删除各为一次编辑，可用 Vim `u` / `Ctrl+R` 撤销重做。
+按用户 gVim 的 `foldmethod=marker`、默认 `foldlevel=0` 和 `nnoremap zo za` 实现手工折叠。打开文档时默认收起所有 marker 折叠；Normal 的 `zf` 等待后续 motion，使用 VSCodeVim 原生范围、次数、文本对象和取消流程；Visual 选区包含最后一行。创建/删除各为一次编辑，可用 Vim `u` / `Ctrl+R` 撤销重做。
 
 | 按键 | 行为 |
 | --- | --- |
@@ -10,14 +10,14 @@
 | `[count]zF` | 折叠从当前行开始的指定行数 |
 | Visual `zf` | 折叠选区；字符、整行、矩形选区均按行处理 |
 | `zd`、`zD`、`zE` | 删除当前一层 / 递归删除 / 删除所有 marker；闭合外层的 `zd` 保留内层 |
-| `zo`、`zc`、`za` | 展开 / 收起 / 切换；`zo` 不再被旧配置映射为切换 |
+| `zo`、`zc`、`za` | 切换 / 收起 / 切换；`zo` 与本机 Vim 的自定义映射一致 |
 | `zO`、`zC`、`zA` | 递归展开 / 收起 / 切换 |
 | `zR`、`zM`、`zr`、`zm` | 全部展开 / 收起 / 降低一层折叠 / 增加一层折叠 |
 | `zn`、`zN`、`zi` | 临时禁用 / 恢复 / 切换，保留原有闭合状态 |
 | `zv`、`zx`、`zX` | 展开光标处折叠 / 按层级刷新并显示光标 / 按层级刷新 |
 | `zj`、`zk`、`[z`、`]z` | 下一折叠开始 / 上一折叠结束 / 当前折叠开始 / 结束 |
 
-Normal 的 `zf`、`zd`、`zo` 使用同名非递归 `after`，覆盖旧命令映射并交回原生动作；`zF` 等价于 `zf_`，避免 VSCodeVim 将 `zff` 误当作重复操作符而吃掉 `f{char}` motion。SV 关键字 `zf%` 需要同级 `local.vim-sv-match` 0.1.2；括号 `%` 使用原生匹配。
+Normal 的 `zf`、`zd` 使用同名非递归 `after`，覆盖旧命令映射并交回原生动作；Normal `zo` 映射为 `za`，保留 VSCodeVim 的折叠切换处理；`zF` 等价于 `zf_`，避免 VSCodeVim 将 `zff` 误当作重复操作符而吃掉 `f{char}` motion。SV 关键字 `zf%` 需要同级 `local.vim-sv-match` 0.1.2；括号 `%` 使用原生匹配。
 
 ## 安装
 

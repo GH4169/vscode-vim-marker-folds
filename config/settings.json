@@ -2,6 +2,7 @@
   "editor.folding": true,
   "editor.foldingStrategy": "auto",
   "editor.defaultFoldingRangeProvider": "local.gvim-marker-folds",
+  "gvimMarkerFolds.collapseAllOnOpen": true,
   "vim.foldfix": true,
   "vim.normalModeKeyBindingsNonRecursive": [
     {
