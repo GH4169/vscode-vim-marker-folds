@@ -202,12 +202,14 @@ async function run() {
       );
     });
   await record(
-    'zo opens; repeated zo stays open; zc closes; za toggles',
+    'Normal zo toggles like za; zc closes',
     async () => {
       await open(sample);
       await type('zf2j');
       await type('zo');
       assert.ok(!hidden(1));
+      await type('zo');
+      assert.ok(hidden(1));
       await type('zo');
       assert.ok(!hidden(1));
       await type('zc');
@@ -283,7 +285,7 @@ async function run() {
     assert.ok(!hidden(7));
   });
   await record(
-    'nested zo opens one level and za toggles the visible closed fold',
+    'nested zo toggles one level and za toggles the visible closed fold',
     async () => {
       await open(nested);
       await type('zMzo');
