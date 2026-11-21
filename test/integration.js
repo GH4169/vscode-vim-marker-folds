@@ -222,6 +222,17 @@ async function run() {
   );
   const nested = 'a // {{{\nb // {{{\nc\nd // }}}\ne // }}}\ntail\n';
   await record(
+    'marker folds start closed like Vim foldlevel=0; zo toggles them',
+    async () => {
+      await open(nested);
+      assert.ok(hidden(1));
+      await type('zo');
+      assert.ok(!hidden(1));
+      await type('zo');
+      assert.ok(hidden(1));
+    }
+  );
+  await record(
     'zd on closed outer fold removes outer markers and preserves nested fold',
     async () => {
       const doc = await open(nested);

@@ -2,7 +2,7 @@
 
 以合法注释写入 {{{ / }}}，提供专用 FoldingRangeProvider 和折叠行数装饰。
 
-按用户 gVim 的 `foldmethod=marker` 配置实现手工创建折叠。Normal 的 `zf` 等待后续 motion，使用 VSCodeVim 原生范围、次数、文本对象和取消流程；Visual 选区包含最后一行。创建/删除各为一次编辑，可用 Vim `u` / `Ctrl+R` 撤销重做。
+按用户 gVim 的 `foldmethod=marker`、默认 `foldlevel=0` 和 `nnoremap zo za` 实现手工折叠。打开文档时默认收起所有 marker 折叠；Normal 的 `zf` 等待后续 motion，使用 VSCodeVim 原生范围、次数、文本对象和取消流程；Visual 选区包含最后一行。创建/删除各为一次编辑，可用 Vim `u` / `Ctrl+R` 撤销重做。
 
 | 按键 | 行为 |
 | --- | --- |
